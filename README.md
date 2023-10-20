@@ -33,7 +33,7 @@ The tool can be used in many ways, helping people handle lots of information.
 
 ## How it works
 ### Overview of the Workflow
-![Alt text](./img/132.png)
+![Alt text](./img/workflowInTasks.png)
 ### Architecture Diagram
 ![Alt text](./img/Architecture.png)
 
