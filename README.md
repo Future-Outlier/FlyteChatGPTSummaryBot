@@ -39,10 +39,12 @@ The tool can be used in many ways, helping people handle lots of information.
 
 ### Web Scraping Medium Articles
 We utilize web scraping techniques to extract articles from [medium MLOps](https://medium.com/tag/mlops).
+
 The goal is to gather relevant and latest content about MLOps from a trusted source.
 
 ### Summarization with ChatGPT (GPT-4 Model)
 The extracted texts from Medium are fed into the ChatGPT model with GPT-4 architecture.
+
 The model generates a concise summary of the articles, ensuring the essence of the content is retained.
 
 ### Tweeting the Summaries
@@ -111,10 +113,13 @@ kubectl rollout restart deployment flyteagent  -n flyte
 
 ## Other Use cases
 ### Corporate News Digest
-Companies frequently release weekly and daily updates. Using this technology, we can automate the process of summarizing these updates, providing employees and stakeholders with concise digests of essential information.
+Companies frequently release weekly and daily updates.
+
+Using this technology, we can automate the process of summarizing these updates, providing employees and stakeholders with concise digests of essential information.
 
 ### Event Recaps
 After major industry events or conferences, there's often an influx of articles, interviews, and reports.
+
 This system can generate quick recaps, allowing interested parts to stay updated without spending hours reading.
 
 ### Product Updates
