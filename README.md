@@ -87,7 +87,7 @@ plugins:
 ```bash
 kubectl rollout restart deployment flyte-sandbox -n flyte
 ```
-4.Add the OpenAI access token
+### 4.Add the OpenAI access token
 ```bash
 kubectl edit secret flyteagent -n flyte
 ```
