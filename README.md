@@ -102,4 +102,6 @@ kubectl rollout restart deployment flyteagent  -n flyte
 ```
 
 ## Other Use cases
+In most of companies, they will update lots of weekly news and daily news, which is a lot of information.
+We can use every notifications as a workflow to simplify the process of summarizing the information.
 
