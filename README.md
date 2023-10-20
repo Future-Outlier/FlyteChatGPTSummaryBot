@@ -40,14 +40,14 @@ The model generates a concise summary of the articles, ensuring the essence of t
 ### Tweeting the Summaries
 The summarized content is then posted on Twitter, allowing followers to get quick insights into the latest MLOps articles without having to read the entire piece.
 
-### How to setup
-1.Start your flyte cluster.
+## How to setup
+### 1.Start your flyte cluster.
 ```bash
 flytectl demo start
 ```
 This step will start your flyte cluster and agent server.
 The agent server will handle the ChatGPT Task to OpenAI server.
-2.Set the secret value
+### 2.Set the secret value
 ```bash
 kubectl edit secret flyte-sandbox-config-secret -n flyte
 ```
@@ -62,7 +62,7 @@ data:
   access_token: <BASE64_ENCODED_TWITTER_ACCESS_TOKEN>
   access_token_secret: <BASE64_ENCODED_TWITTER_ACCESS_TOKEN_SECRET>
 ```
-3.Enable the ChatGPT agent on the demo cluster by adding the following config
+### 3.Enable the ChatGPT agent on the demo cluster by adding the following config
 ```bash
 kubectl edit configmap flyte-sandbox-config -n flyte
 ```
