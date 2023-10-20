@@ -1,12 +1,11 @@
-import os
-
+import flytekit
 from flytekit import task, workflow
 from flytekitplugins.chatgpt import ChatGPTTask
 
 chatgpt_job = ChatGPTTask(
     name="chatgpt",
     config={
-        "openai_organization": os.environ.get("OPENAI_ORGANIZATION"),
+        "openai_organization": flytekit.current_context().secrets.get("OPENAI_ORGANIZATION"),
         "chatgpt_conf": {
             "model": "gpt-4",
             "temperature": 0.7,
@@ -55,16 +54,14 @@ def get_weekly_articles_title(url: str = "https://medium.com/tag/mlops") -> str:
 
 @task
 def tweet(text: str):
-    import os
-
     import tweepy
 
     TWEET_LENGTH = 280
-    BEARER_TOKEN = os.environ.get("BEARER_TOKEN")
-    CONSUMER_KEY = os.environ.get("CONSUMER_KEY")
-    CONSUMER_SECRET = os.environ.get("CONSUMER_SECRET")
-    ACCESS_TOKEN = os.environ.get("ACCESS_TOKEN")
-    ACCESS_TOKEN_SECRET = os.environ.get("ACCESS_TOKEN_SECRET")
+    BEARER_TOKEN = flytekit.current_context().secrets.get("BEARER_TOKEN")
+    CONSUMER_KEY = flytekit.current_context().secrets.get("CONSUMER_KEY")
+    CONSUMER_SECRET = flytekit.current_context().secrets.get("CONSUMER_SECRET")
+    ACCESS_TOKEN = flytekit.current_context().secrets.get("ACCESS_TOKEN")
+    ACCESS_TOKEN_SECRET = flytekit.current_context().secrets.get("ACCESS_TOKEN_SECRET")
     client = tweepy.Client(
         bearer_token=BEARER_TOKEN,
         consumer_key=CONSUMER_KEY,
