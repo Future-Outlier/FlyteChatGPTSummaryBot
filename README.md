@@ -14,7 +14,7 @@ pyflyte run --remote --image your-image getWeeklyMLOpsTrend.py wf --url "https:/
 ```
 
 
-![Alt text](image.png)
+![Alt text](./img/tweet.png)
 
 ## Motivation
 There's a lot more online content now, and it's hard to absorb all the information.
@@ -25,9 +25,9 @@ MLOpsTrendFlyteBot is a tool that uses ChatGPT to find, shorten, and share the n
 
 ## How it works
 ### Overview of the Workflow
-![Alt text](workflowInTasks.png)
+![Alt text](./img/workflowInTasks.png)
 ### Architecture Diagram
-![Alt text](Architecture.png)
+![Alt text](./img/Architecture.png)
 
 ### Web Scraping Medium Articles
 We utilize web scraping techniques to extract articles from [medium MLOps](https://medium.com/tag/mlops).
