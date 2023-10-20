@@ -1,2 +1,2 @@
 # MLOpsTrendFlyteBot
-![MLOps Trend Bot](https://github.com/Future-Outlier/MLOpsTrendFlyteBot/MLOpsTrendBot.gif)
+![MLOps Trend Bot](https://raw.githubusercontent.com/Future-Outlier/MLOpsTrendFlyteBot/MLOpsTrendBot.gif)
