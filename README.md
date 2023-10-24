@@ -27,6 +27,8 @@
 
 
 ### Get the Latest Flyte Release Summary (Reduced 10+ times characters, From 13410 characters to 1108 characters.)
+Post the latest Flyte release's summary on this [Slack Channel](https://join.slack.com/t/flytechatgptp-gqx8571/shared_invite/zt-25okk0gyc-HUKChk1LVDN5QsdNNT3xsA)!
+
 Execute it locally by `python`
 
 Create the secret locally
