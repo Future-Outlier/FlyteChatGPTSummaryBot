@@ -1,6 +1,6 @@
 # FlyteChatGPTSummaryBot
 ## Demo
-![Uploading github_release_bot.gif…]()
+![github_release_bot](https://github.com/Future-Outlier/FlyteChatGPTSummaryBot/assets/76461262/d5cab061-83b9-4c30-9fbd-d36b86b6f4e7)
 
 ### Get the Latest Flyte Release Summary
 Execute it locally by `python`
@@ -29,8 +29,6 @@ Screenshot
 
 ### Get Weekly MLOps Trend
 Get the MLOps latest news from Medium and summarize it to [this Twitter Account](https://twitter.com/MLOpsTrendBot)!
-
-https://github.com/Future-Outlier/MLOpsTrendFlyteBot/assets/76461262/ca79a0a0-2ac8-4d65-b22f-0a48506dca2d
 
 Execute it by `python`
 
