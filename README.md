@@ -1,5 +1,7 @@
 # FlyteChatGPTSummaryBot
 ## Demo
+![Uploading github_release_bot.gif…]()
+
 ### Get the Latest Flyte Release Summary
 Execute it locally by `python`
 
