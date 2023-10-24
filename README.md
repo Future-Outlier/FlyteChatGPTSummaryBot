@@ -1,4 +1,5 @@
 # FlyteChatGPTSummaryBot
+
 ## Demo
 <table>
   <tr>
@@ -11,7 +12,18 @@
       <img src="https://github.com/Future-Outlier/FlyteChatGPTSummaryBot/assets/76461262/bdc2161e-09f9-4c74-a9ef-87d5bb60936e" alt="MLOPs_medium_bot" />
     </td>
   </tr>
+  <tr>
+    <td>
+      <!-- github_release_bot caption -->
+      Flyte GitHub Release Slack Bot
+    </td>
+    <td>
+      <!-- MLOPs_medium_bot caption -->
+      MLOPs Medium Tweet Bot
+    </td>
+  </tr>
 </table>
+
 
 
 ### Get the Latest Flyte Release Summary
