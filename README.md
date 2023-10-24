@@ -1,6 +1,7 @@
 # FlyteChatGPTSummaryBot
 ## Demo
 ![github_release_bot](https://github.com/Future-Outlier/FlyteChatGPTSummaryBot/assets/76461262/d5cab061-83b9-4c30-9fbd-d36b86b6f4e7)
+![MLOPs_medium_bot](https://github.com/Future-Outlier/FlyteChatGPTSummaryBot/assets/76461262/bdc2161e-09f9-4c74-a9ef-87d5bb60936e)
 
 
 ### Get the Latest Flyte Release Summary
