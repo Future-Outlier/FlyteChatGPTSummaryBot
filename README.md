@@ -2,6 +2,8 @@
 ## Demo
 ![github_release_bot](https://github.com/Future-Outlier/FlyteChatGPTSummaryBot/assets/76461262/d5cab061-83b9-4c30-9fbd-d36b86b6f4e7)
 
+https://github.com/Future-Outlier/FlyteChatGPTSummaryBot/assets/76461262/d5cab061-83b9-4c30-9fbd-d36b86b6f4e7
+
 ### Get the Latest Flyte Release Summary
 Execute it locally by `python`
 
