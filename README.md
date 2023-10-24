@@ -53,7 +53,7 @@ Screenshot
 
 ![Alt text](./img/slackbot.png)
 
-### Get Weekly MLOps Trend
+### Get Medium Weekly MLOps Trend
 Get the MLOps latest news from Medium and summarize it to [this Twitter Account](https://twitter.com/MLOpsTrendBot)!
 
 Execute it by `python`
@@ -114,7 +114,7 @@ Let **FlyteChatGPTSummaryBot** be your ally in navigating the digital content ts
 I hope this encapsulates your vision for the project and conveys the tool's value to you!
 
 ## How it works
-### Overview of the `WeeklyMLOpsTrend` Workflow
+### Overview of the `MediumWeeklyMLOpsTrend` Workflow
 ![Alt text](./img/MLOpsWorkflow.png)
 ### Overview of the `GithubLatestRelease` Workflow
 ![Alt text](./img/GithubWorkflow.png)
