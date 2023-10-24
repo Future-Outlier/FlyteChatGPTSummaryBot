@@ -1,18 +1,64 @@
-# MLOpsTrendFlyteBot
+# FlyteSummaryBot
 ## Demo
+### Get Latest Flyte Release Summary
+Execute it locally by `python`
+
+Create the secret locally
+```bash
+cd /etc/secrets
+mkdir slack-api
+echo "SLACK_API_TOKEN" > token
+```
+```bash
+python getFlyteLatestReleaseSummary.py
+```
+Or execute it remotley by `pyflyte run --remote`
+```bash
+kubectl create secret generic slack-api\
+      --from-literal=token="SLACK_API_TOKEN"
+```
+```bash
+pyflyte run --remote --image your-image getFlyteLatestReleaseSummary.py wf
+```
+
+Screenshot
+
+![Alt text](./img/slackbot.png)
+
+### Get Weekly MLOps Trend
 Get the MLOps latest news from Medium and summarize it to [this Twitter Account](https://twitter.com/MLOpsTrendBot)!
 
 https://github.com/Future-Outlier/MLOpsTrendFlyteBot/assets/76461262/ca79a0a0-2ac8-4d65-b22f-0a48506dca2d
 
 Execute it by `python`
+
+Create the secret locally
+```bash
+cd /etc/secrets
+mkdir tweet-api
+echo "bearer_token" > bearer_token
+echo "consumer_key" > consumer_key
+echo "consumer_secret" > consumer_secret
+echo "access_token" > access_token
+echo "access_token_secret" > access_token_secret
+```
 ```bash
 python getWeeklyMLOpsTrend.py
 ```
-Or execute it by `pyflyte run --remote`
+Or execute it remotley by `pyflyte run --remote`
+```bash
+kubectl create secret generic tweet-api\
+      --from-literal=bearer_token="bearer_token"\
+      --from-literal=consumer_key="consumer_key"\
+      --from-literal=consumer_secret="consumer_secret"\
+      --from-literal=access_token="access_token"\
+      --from-literal=access_token_secret="access_token_secret"
+```
 ```bash
 pyflyte run --remote --image your-image getWeeklyMLOpsTrend.py wf --url "https://medium.com/tag/mlops"
 ```
 
+Screenshot
 
 ![Alt text](./img/tweet.png)
 
@@ -57,47 +103,9 @@ flytectl demo start
 ```
 This step will start your flyte cluster and agent server.
 The agent server will handle the ChatGPT Task to OpenAI server.
-### 2.Set the secret value
-```bash
-kubectl edit secret flyte-sandbox-config-secret -n flyte
-```
-```yaml
-apiVersion: v1
-data:
-  012-database-secrets.yaml: ZGF0YWJhc2U6CiAgcG9zdGdyZXM6CiAgICBwYXNzd29yZDogInBvc3RncmVzIgo=
-  013-storage-secrets.yaml: c3RvcmFnZToKICBzdG93OgogICAgY29uZmlnOgogICAgICBhY2Nlc3Nfa2V5X2lkOiAibWluaW8iCiAgICAgIHNlY3JldF9rZXk6ICJtaW5pb3N0b3JhZ2UiCg==
-  bearer_token: <BASE64_ENCODED_TWITTER_BEARER_TOKEN>
-  consumer_key: <BASE64_ENCODED_TWITTER_CONSUMER_KEY>
-  consumer_secret: <BASE64_ENCODED_TWITTER_CONSUMER_SECRET>
-  access_token: <BASE64_ENCODED_TWITTER_ACCESS_TOKEN>
-  access_token_secret: <BASE64_ENCODED_TWITTER_ACCESS_TOKEN_SECRET>
-```
-### 3.Enable the ChatGPT agent on the demo cluster by adding the following config
-```bash
-kubectl edit configmap flyte-sandbox-config -n flyte
-```
-```yaml
-tasks:
-  task-plugins:
-    default-for-task-types:
-      container: container
-      container_array: k8s-array
-      sidecar: sidecar
-      api_task: agent-service
-    enabled-plugins:
-      - container
-      - sidecar
-      - k8s-array
-      - agent-service
-plugins:
-  agent-service:
-    supportedTaskTypes:
-        - api_task
-```
-```bash
-kubectl rollout restart deployment flyte-sandbox -n flyte
-```
-### 4.Add the OpenAI access token
+### 2.Add the OpenAI access token
+Set the secret I write in `demo` section.
+
 ```bash
 kubectl edit secret flyteagent -n flyte
 ```
