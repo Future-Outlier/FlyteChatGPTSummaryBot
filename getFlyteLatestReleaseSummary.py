@@ -27,7 +27,7 @@ chatgpt_job = ChatGPTTask(
         registry="futureoutlier",
     ),
 )
-def get_github_weekly_pr(owner: str = "flyteorg", repo: str = "flyte") -> str:
+def get_github_latest_release(owner: str = "flyteorg", repo: str = "flyte") -> str:
     import requests
 
     token = flytekit.current_context().secrets.get("github-api", "token")
@@ -72,7 +72,7 @@ def post_message_on_slack(message: str):
 
 @workflow
 def wf():
-    message = get_github_weekly_pr(owner="flyteorg", repo="flyte")
+    message = get_github_latest_release(owner="flyteorg", repo="flyte")
     message = chatgpt_job(message=message)
     post_message_on_slack(message=message)
 

@@ -88,23 +88,14 @@ Let **FlyteChatGPTSummaryBot** be your ally in navigating the digital content ts
 I hope this encapsulates your vision for the project and conveys the tool's value to you!
 
 ## How it works
-### Overview of the Workflow
-![Alt text](./img/workflow.png)
-### Architecture Diagram
+### Overview of the `WeeklyMLOpsTrend` Workflow
+![Alt text](./img/MLOpsWorkflow.png)
+### Overview of the `GithubLatestRelease` Workflow
+![Alt text](./img/GithubWorkflow.png)
+### Multiple workflow usecases
+![Alt text](./img/MultipleWokrflows.png)
+### ChatGPT Task Architecture Diagram
 ![Alt text](./img/Architecture.png)
-
-### Web Scraping Medium Articles
-We utilize web scraping techniques to extract articles from [medium MLOps](https://medium.com/tag/mlops).
-
-The goal is to gather relevant and latest content about MLOps from a trusted source.
-
-### Summarization with ChatGPT (GPT-4 Model)
-The extracted texts from Medium are fed into the ChatGPT model with GPT-4 architecture.
-
-The model generates a concise summary of the articles, ensuring the essence of the content is retained.
-
-### Tweeting the Summaries
-The summarized content is then posted on Twitter, allowing followers to get quick insights into the latest MLOps articles without having to read the entire piece.
 
 ## How to setup
 ### 1.Start your flyte cluster.
