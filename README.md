@@ -26,7 +26,7 @@
 
 
 
-### Get the Latest Flyte Release Summary
+### Get the Latest Flyte Release Summary (Reduced 10+ times characters, From 13410 characters to 1108 characters.)
 Execute it locally by `python`
 
 Create the secret locally
