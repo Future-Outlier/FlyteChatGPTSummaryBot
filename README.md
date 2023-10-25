@@ -15,11 +15,11 @@
   <tr>
     <td>
       <!-- github_release_bot caption -->
-      Flyte GitHub Release Slack Bot
+      <a href="https://join.slack.com/t/flytechatgptp-gqx8571/shared_invite/zt-25okk0gyc-HUKChk1LVDN5QsdNNT3xsA">Flyte GitHub Release Slack Bot</a>
     </td>
     <td>
       <!-- MLOPs_medium_bot caption -->
-      MLOPs Medium Tweet Bot
+      <a href="https://twitter.com/MLOpsTrendBot">MLOPs Medium Tweet Bot</a>
     </td>
   </tr>
 </table>
@@ -27,6 +27,8 @@
 
 
 ### Get the Latest Flyte Release Summary (Reduced 10+ times characters, From 13410 characters to 1108 characters.)
+Post the latest Flyte release's summary on this [Slack Channel](https://join.slack.com/t/flytechatgptp-gqx8571/shared_invite/zt-25okk0gyc-HUKChk1LVDN5QsdNNT3xsA)!
+
 Execute it locally by `python`
 
 Create the secret locally
@@ -51,7 +53,7 @@ Screenshot
 
 ![Alt text](./img/slackbot.png)
 
-### Get Weekly MLOps Trend
+### Get Medium Weekly MLOps Trend
 Get the MLOps latest news from Medium and summarize it to [this Twitter Account](https://twitter.com/MLOpsTrendBot)!
 
 Execute it by `python`
@@ -112,7 +114,7 @@ Let **FlyteChatGPTSummaryBot** be your ally in navigating the digital content ts
 I hope this encapsulates your vision for the project and conveys the tool's value to you!
 
 ## How it works
-### Overview of the `WeeklyMLOpsTrend` Workflow
+### Overview of the `MediumWeeklyMLOpsTrend` Workflow
 ![Alt text](./img/MLOpsWorkflow.png)
 ### Overview of the `GithubLatestRelease` Workflow
 ![Alt text](./img/GithubWorkflow.png)
