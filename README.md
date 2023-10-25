@@ -15,11 +15,11 @@
   <tr>
     <td>
       <!-- github_release_bot caption -->
-      Flyte GitHub Release Slack Bot
+      <a href="https://join.slack.com/t/flytechatgptp-gqx8571/shared_invite/zt-25okk0gyc-HUKChk1LVDN5QsdNNT3xsA">Flyte GitHub Release Slack Bot</a>
     </td>
     <td>
       <!-- MLOPs_medium_bot caption -->
-      MLOPs Medium Tweet Bot
+      <a href="https://twitter.com/MLOpsTrendBot">MLOPs Medium Tweet Bot</a>
     </td>
   </tr>
 </table>
