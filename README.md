@@ -90,7 +90,7 @@ Screenshot
 In the vast digital landscape of our age, the flood of online content is overwhelming, posing a challenge for many to digest and keep up-to-date.
 This holds true, especially in niche fields such as MLOps, where rapid shifts in trends, tools, and practices necessitate continuous attention.
 
-Enter **FlyteChatGPTSummaryBot**. This tool is designed to tackle the information deluge. Harnessing the power of ChatGPT, it identifies fresh and crucial MLOps news articles on Medium, distills them down to their essence, and delivers these concise updates straight to your Twitter feed—all of this is achieved seamlessly using Flyte's machine learning workflows.
+Introducing **FlyteChatGPTSummaryBot** - your **solution** to the digital content overload. Built upon the capabilities of ChatGPT, this tool scans the latest MLOps news articles on Medium, condenses their core insights, and shares the digest directly to your Twitter feed. And all of this magic is orchestrated using Flyte's machine learning workflows.
 
 Beyond its current applications, the potential uses of **FlyteChatGPTSummaryBot** are diverse:
 
@@ -118,7 +118,10 @@ I hope this encapsulates your vision for the project and conveys the tool's valu
 ![Alt text](./img/GithubWorkflow.png)
 ### Multiple workflow usecases
 ![Alt text](./img/MultipleWokrflows.png)
-### ChatGPT Task Architecture Diagram
+- Sources: Internal System, Github Weekly Merged PRs, Github Latest Release, Medium MLOps Weekly Title, HackerNews
+- Summary Service: ChatGPT
+- Communication Channels: Internal Information System, Slack, Twitter, Linkedin, Medium, Reddit
+### ChatGPT Task Architecture Diagramz
 ![Alt text](./img/Architecture.png)
 
 ## How to setup
