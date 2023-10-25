@@ -89,10 +89,9 @@ Screenshot
 ![Alt text](./img/tweet.png)
 
 ## Motivation
-In the vast digital landscape of our age, the flood of online content is overwhelming, posing a challenge for many to digest and keep up-to-date.
-This holds true, especially in niche fields such as MLOps, where rapid shifts in trends, tools, and practices necessitate continuous attention.
+In today's vast digital landscape, the inundation of online content presents a genuine challenge for many to assimilate and stay current. This is particularly evident in specialized areas like MLOps, where the swift evolution in trends, tools, and methods calls for undivided attention.
 
-Introducing **FlyteChatGPTSummaryBot** - your **solution** to the digital content overload. Built upon the capabilities of ChatGPT, this tool scans the latest MLOps news articles on Medium, condenses their core insights, and shares the digest directly to your Twitter feed. And all of this magic is orchestrated using Flyte's machine learning workflows.
+Enter **FlyteChatGPTSummaryBot**: Leveraging the system architecture of **Sources**, **Summary Service**, and **Communication Channels**, it offers a formidable solution to the complexities of information. Capitalizing on ChatGPT's capabilities, this bot identifies the most recent MLOps articles on Medium, crystallizes their main insights, and broadcasts the summaries right to your Twitter. All this is seamlessly executed through Flyte's ML workflows.
 
 Beyond its current applications, the potential uses of **FlyteChatGPTSummaryBot** are diverse:
 
