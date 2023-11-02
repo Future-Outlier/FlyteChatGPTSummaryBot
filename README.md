@@ -11,6 +11,11 @@
       <!-- MLOPs_medium_bot GIF -->
       <img src="https://github.com/Future-Outlier/FlyteChatGPTSummaryBot/assets/76461262/bdc2161e-09f9-4c74-a9ef-87d5bb60936e" alt="MLOPs_medium_bot" />
     </td>
+    <!-- YT_video_release_bot video cell -->
+    <td>
+      <!-- YT_video_release_bot video -->
+      <img src="https://github.com/Future-Outlier/FlyteChatGPTSummaryBot/assets/76461262/c0069a26-c8bb-40ee-979a-9d9b4b786b1b" alt="YT_video_release_bot" />
+    </td>
   </tr>
   <tr>
     <td>
@@ -21,8 +26,14 @@
       <!-- MLOPs_medium_bot caption -->
       <a href="https://twitter.com/MLOpsTrendBot">MLOPs Medium Tweet Bot</a>
     </td>
+    <!-- YT_video_release_bot caption cell -->
+    <td>
+      <!-- YT_video_release_bot caption -->
+      <a href="https://join.slack.com/t/flytechatgptp-gqx8571/shared_invite/zt-25okk0gyc-HUKChk1LVDN5QsdNNT3xsA">YT Video Release Bot</a>
+    </td>
   </tr>
 </table>
+
 
 
 
