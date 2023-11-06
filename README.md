@@ -62,7 +62,7 @@ pyflyte run --remote --image your-image getFlyteLatestReleaseSummary.py wf
 
 Screenshot
 
-![Alt text](./img/slackbot.png)
+![Alt text](./img/slackbot-github-releases-summary.png)
 
 ### Get Medium Weekly MLOps Trend
 Get the MLOps latest news from Medium and summarize it to [this Twitter Account](https://twitter.com/MLOpsTrendBot)!
@@ -99,29 +99,49 @@ Screenshot
 
 ![Alt text](./img/tweet.png)
 
+### Get the Latest Flyte Youtube Summary (Reduced a 45 minutes video to 6 minutes Reading Time Article)
+Post the latest Flyte Youtube Summary on this [Slack Channel](https://join.slack.com/t/flytechatgptp-gqx8571/shared_invite/zt-25okk0gyc-HUKChk1LVDN5QsdNNT3xsA)!
+
+Execute it locally by `python`
+
+Create the secret locally
+```bash
+cd /etc/secrets
+mkdir slack-api
+echo "SLACK_API_TOKEN" > token
+```
+```bash
+python getFlyteLatestReleaseSummary.py
+```
+Or execute it remotley by `pyflyte run --remote`
+```bash
+kubectl create secret generic slack-api\
+      --from-literal=token="SLACK_API_TOKEN"
+```
+```bash
+pyflyte run --remote --image your-image getFlyteLatestYouTubeSummary.py.py wf
+```
+
+Screenshot
+
+![Alt text](./img/slackbot-yt-summary.png)
+
 ## Motivation
-In today's vast digital landscape, the inundation of online content presents a genuine challenge for many to assimilate and stay current. This is particularly evident in specialized areas like MLOps, where the swift evolution in trends, tools, and methods calls for undivided attention.
+In this era, lots of information explodes, such as videos, articles, or github releases.
+Summarizing these information becomes a necessity to us, since we don't have to time to absorb these information one by one.
 
-Enter **FlyteChatGPTSummaryBot**: Leveraging the system architecture of **Sources**, **Summary Service**, and **Communication Channels**, it offers a formidable solution to the complexities of information. Capitalizing on ChatGPT's capabilities, this bot identifies the most recent MLOps articles on Medium, crystallizes their main insights, and broadcasts the summaries right to your Twitter. All this is seamlessly executed through Flyte's ML workflows.
+Enter **FlyteChatGPTSummaryBot**: 
+Leveraging the system architecture of **Sources**, **Summary Service**, and **Communication Channels**, it offers a solution to summarize information and send it to your customized notifictioans.
 
-Beyond its current applications, the potential uses of **FlyteChatGPTSummaryBot** are diverse:
+I provide 3 examples in this repo.
 
-1. **Corporate Updates**: Convert lengthy weekly reports into succinct versions, aiding employees in staying abreast without investing substantial time.
-2. **Post-event Recaps**: Following significant events, there's often a sea of detailed articles and reviews. The tool can create brief summaries, allowing audiences to stay informed without delving deep.
-3. **Tech Product Releases**: With new software iterations, comprehending updates can be intricate. This bot can distill those updates into easy-to-grasp summaries, aiding users.
-4. **Brands and Customer Feedback**: Brands could deploy the tool to collate and distill customer feedback across various platforms, granting insights into consumer sentiments regarding their offerings.
+- Summarize the latest MLOps trends weekly in Medium and send them to Twitter.
+- Summarize the latest `flyteorg/flyte` repo releases, and send it to Slack Channel.
+- Summarize the latest `flyteorg` youtube video, and send it to Slack Channel.
 
-Furthermore, the tool has shown its proficiency in:
+The essence of **FlyteChatGPTSummaryBot** reduce the burden of consuming lots of information, and its utility extends to lots of scenarios.
+Also, it leverages Flyte's capability, which makes workflows reproducible and have Versioned feature!
 
-- Crawling articles under the MEDIUM MLOps tag, summarizing the latest MLOps trends weekly, and broadcasting them on Twitter.
-- Accessing the `flyteorg/flyte` repository through the GitHub API using an access_token, retrieving the latest summary count, and relaying it to a Slack bot.
-
-The essence of **FlyteChatGPTSummaryBot** revolves around alleviating the burden of consuming lots of information, and its utility extends to lots of scenarios.
-
-Should you think of more potential applications or require further customizations, this tool is versatile and can be tailored accordingly.
-Let **FlyteChatGPTSummaryBot** be your ally in navigating the digital content tsunami.
-
-I hope this encapsulates your vision for the project and conveys the tool's value to you!
 
 ## How it works
 ### Overview of the `MediumWeeklyMLOpsTrend` Workflow
