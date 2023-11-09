@@ -22,7 +22,7 @@ chatgpt_job = ChatGPTTask(
     secret_requests=[Secret(key="token", group="slack-api")],
     container_image=ImageSpec(
         packages=[
-            flytekit,
+            "flytekit",
             "slack_sdk",
         ],
         apt_packages=["git"],

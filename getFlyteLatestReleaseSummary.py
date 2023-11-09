@@ -20,7 +20,7 @@ chatgpt_job = ChatGPTTask(
     secret_requests=[Secret(key="token", group="github-api")],
     container_image=ImageSpec(
         packages=[
-            flytekit,
+            "flytekit",
             "requests",
         ],
         apt_packages=["git"],
@@ -55,7 +55,7 @@ def get_github_latest_release(owner: str = "flyteorg", repo: str = "flyte") -> s
     secret_requests=[Secret(key="token", group="slack-api")],
     container_image=ImageSpec(
         packages=[
-            flytekit,
+            "flytekit",
             "slack_sdk",
         ],
         apt_packages=["git"],

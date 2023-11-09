@@ -17,7 +17,7 @@ chatgpt_job = ChatGPTTask(
 @task(
     container_image=ImageSpec(
         packages=[
-            flytekit,
+            "flytekit",
             "beautifulsoup4",
             "selenium",
             "webdriver_manager",

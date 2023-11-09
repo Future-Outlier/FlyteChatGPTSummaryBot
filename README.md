@@ -52,10 +52,13 @@ Also, it leverages Flyte's capability, which makes workflows reproducible and ha
 
 
 ## How it works
-### Overview of the `MediumWeeklyMLOpsTrend` Workflow
-![Alt text](./img/MLOpsWorkflow.png)
 ### Overview of the `GithubLatestRelease` Workflow
 ![Alt text](./img/GithubWorkflow.png)
+### Overview of the `MediumWeeklyMLOpsTrend` Workflow
+![Alt text](./img/MLOpsWorkflow.png)
+### Overview of the  `YoutubeLatestSummary` Workflow
+![Alt text](./img/YoutubeWorkflow.png)
+
 ### Multiple workflow usecases
 ![Alt text](./img/MultipleWokrflows.png)
 - Sources: Internal System, Github Weekly Merged PRs, Github Latest Release, Medium MLOps Weekly Title, HackerNews
