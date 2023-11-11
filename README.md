@@ -64,7 +64,7 @@ Also, it leverages Flyte's capability, which makes workflows reproducible and ha
 - Sources: Internal System, Github Weekly Merged PRs, Github Latest Release, Medium MLOps Weekly Title, HackerNews
 - Summary Service: ChatGPT
 - Communication Channels: Internal Information System, Slack, Twitter, Linkedin, Medium, Reddit
-### ChatGPT Task Architecture Diagramz
+### ChatGPT Task Architecture Diagram
 ![Alt text](./img/Architecture.png)
 
 ## Other Use cases
@@ -126,10 +126,14 @@ python getFlyteLatestReleaseSummary.py
 Or execute it remotley by `pyflyte run --remote`
 ```bash
 kubectl create secret generic slack-api\
-      --from-literal=token="SLACK_API_TOKEN"
+      --from-literal=token="SLACK_API_TOKEN"\
+      -n flytesnacks-development
+kubectl create secret generic github-api\
+      --from-literal=token="GITHUB_API_TOKEN"\
+      -n flytesnacks-development
 ```
 ```bash
-pyflyte run --remote --image your-image getFlyteLatestReleaseSummary.py wf
+pyflyte run --remote --image futureoutlier/flytekit:chatgpt getFlyteLatestReleaseSummary.py wf
 ```
 
 Screenshot
@@ -161,10 +165,11 @@ kubectl create secret generic tweet-api\
       --from-literal=consumer_key="consumer_key"\
       --from-literal=consumer_secret="consumer_secret"\
       --from-literal=access_token="access_token"\
-      --from-literal=access_token_secret="access_token_secret"
+      --from-literal=access_token_secret="access_token_secret"\
+      -n flytesnacks-development
 ```
 ```bash
-pyflyte run --remote --image your-image getWeeklyMLOpsTrend.py wf --url "https://medium.com/tag/mlops"
+pyflyte run --remote --image futureoutlier/flytekit:chatgpt getWeeklyMLOpsTrend.py wf --url "https://medium.com/tag/mlops"
 ```
 
 Screenshot
@@ -188,12 +193,14 @@ python getFlyteLatestReleaseSummary.py
 Or execute it remotley by `pyflyte run --remote`
 ```bash
 kubectl create secret generic slack-api\
-      --from-literal=token="SLACK_API_TOKEN"
+      --from-literal=token="SLACK_API_TOKEN"\
+      -n flytesnacks-development
 ```
 ```bash
-pyflyte run --remote --image your-image getFlyteLatestYouTubeSummary.py.py wf
+pyflyte run --remote futureoutlier/flytekit:chatgpt your-image getFlyteLatestYouTubeSummary.py.py wf
 ```
 
 Screenshot
 
 ![Alt text](./img/slackbot-yt-summary.png)
+![Alt text](./img/yt-workflow.png)

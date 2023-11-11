@@ -7,9 +7,7 @@ from flytekitplugins.chatgpt import ChatGPTTask
 chatgpt_job = ChatGPTTask(
     name="chatgpt",
     config={
-        "openai_organization": flytekit.current_context().secrets.get(
-            "OPENAI_ORGANIZATION"
-        ),
+        "openai_organization": "org-NayNG68kGnVXMJ8Ak4PMgQv7",
         "chatgpt_conf": {
             "model": "gpt-4",
             "temperature": 0.7,
@@ -20,14 +18,6 @@ chatgpt_job = ChatGPTTask(
 
 @task(
     secret_requests=[Secret(key="token", group="slack-api")],
-    container_image=ImageSpec(
-        packages=[
-            "flytekit",
-            "slack_sdk",
-        ],
-        apt_packages=["git"],
-        registry="futureoutlier",
-    ),
 )
 def post_message_on_slack(message: str):
     if message == "":

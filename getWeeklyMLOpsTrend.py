@@ -1,5 +1,5 @@
 import flytekit
-from flytekit import ImageSpec, Secret, task, workflow
+from flytekit import Secret, task, workflow
 from flytekitplugins.chatgpt import ChatGPTTask
 
 chatgpt_job = ChatGPTTask(
@@ -14,18 +14,7 @@ chatgpt_job = ChatGPTTask(
 )
 
 
-@task(
-    container_image=ImageSpec(
-        packages=[
-            "flytekit",
-            "beautifulsoup4",
-            "selenium",
-            "webdriver_manager",
-        ],
-        apt_packages=["git"],
-        registry="futureoutlier",
-    )
-)
+@task
 def get_weekly_articles_title(url: str = "https://medium.com/tag/mlops") -> str:
     from bs4 import BeautifulSoup
     from selenium import webdriver
@@ -71,14 +60,6 @@ def get_weekly_articles_title(url: str = "https://medium.com/tag/mlops") -> str:
         Secret(key="access_token", group="tweet-api"),
         Secret(key="access_token_secret", group="tweet-api"),
     ],
-    container_image=ImageSpec(
-        packages=[
-            flytekit,
-            "tweepy",
-        ],
-        apt_packages=["git"],
-        registry="futureoutlier",
-    ),
 )
 def tweet(text: str):
     import tweepy
