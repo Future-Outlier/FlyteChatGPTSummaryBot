@@ -15,7 +15,7 @@ chatgpt_job = ChatGPTTask(
 
 
 @task
-def get_weekly_articles_title(url: str = "https://medium.com/tag/mlops") -> str:
+def get_weekly_articles_title(url: str = "https://medium.com/tag/flyte") -> str:
     from bs4 import BeautifulSoup
     from selenium import webdriver
     from selenium.webdriver.chrome.options import Options
@@ -89,7 +89,7 @@ def tweet(text: str):
 
 
 @workflow
-def wf(url: str = "https://medium.com/tag/mlops"):
+def wf(url: str = "https://medium.com/tag/flyte"):
     message = get_weekly_articles_title(url=url)
     message = chatgpt_job(message=message)
     tweet(text=message)

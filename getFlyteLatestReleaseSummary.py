@@ -44,19 +44,19 @@ def get_github_latest_release(owner: str = "flyteorg", repo: str = "flyte") -> s
 @task(
     secret_requests=[Secret(key="token", group="slack-api")],
 )
-def post_message_on_slack(message: str):
+def post_message_on_slack(channel:str, message: str):
     from slack_sdk import WebClient
 
     token = flytekit.current_context().secrets.get("slack-api", "token")
     client = WebClient(token=token)
-    client.chat_postMessage(channel="demo", text=message)
+    client.chat_postMessage(channel=channel, text=message)
 
 
 @workflow
-def wf():
-    message = get_github_latest_release(owner="flyteorg", repo="flyte")
+def wf(owner: str = "flyteorg", repo: str = "flyte", channel: str = "demo"):
+    message = get_github_latest_release(owner=owner, repo=repo)
     message = chatgpt_job(message=message)
-    post_message_on_slack(message=message)
+    post_message_on_slack(channel=channel, message=message)
 
 
 if __name__ == "__main__":
