@@ -1,16 +1,18 @@
 import flytekit
 from flytekit import ImageSpec, Secret, task, workflow
-from flytekitplugins.chatgpt import ChatGPTTask
+from flytekitplugins.chatgpt import ChatGPTTask, ChatGPTConfig
+
+config = ChatGPTConfig(
+        openai_organization="org-NayNG68kGnVXMJ8Ak4PMgQv7",
+        chatgpt_config={
+                "model": "gpt-4",
+                "temperature": 0.7,
+        },
+    )
 
 chatgpt_job = ChatGPTTask(
     name="chatgpt",
-    config={
-        "openai_organization": "org-NayNG68kGnVXMJ8Ak4PMgQv7",
-        "chatgpt_conf": {
-            "model": "gpt-4",
-            "temperature": 0.7,
-        },
-    },
+    task_config=config
 )
 
 

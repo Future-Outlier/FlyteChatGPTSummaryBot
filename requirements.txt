@@ -1,12 +1,4 @@
 beautifulsoup4==4.12.2
-flytekit==1.9.1
-flytekit==0.0.0+develop
-flytekit==1.9.0
-flytekit==1.10.0b0
-flytekit.egg==info
-flytekitplugins_chatgpt.egg==info
-flytekitplugins_deck_standard==1.9.0
-flytekitplugins_envd==1.10.0
 Requests==2.31.0
 selenium==4.14.0
 slack_sdk==3.23.0

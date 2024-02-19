@@ -169,7 +169,7 @@ kubectl create secret generic tweet-api\
       -n flytesnacks-development
 ```
 ```bash
-pyflyte run --remote --image futureoutlier/flytekit:chatgpt getWeeklyMLOpsTrend.py wf --url "https://medium.com/tag/mlops"
+pyflyte run --remote --image futureoutlier/flytekit:chatgpt-v2 getWeeklyMLOpsTrend.py wf --url "https://medium.com/tag/mlops"
 ```
 
 Screenshot
