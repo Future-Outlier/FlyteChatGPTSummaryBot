@@ -106,6 +106,29 @@ data:
 ```bash
 kubectl rollout restart deployment flyteagent  -n flyte
 ```
+### 3.Set your agent timeout config (if you use gpt-4 or other large model with large input)
+1. edit your confg map
+```bash
+kubectl edit configmap flyte-sandbox-config -n flyte
+```
+```yaml
+plugins:
+  # Registered Task Types
+  agent-service:
+    supportedTaskTypes:
+      - sensor
+      - default_task
+      - custom_task
+      - chatgpt
+    # By default, all the request will be sent to the default agent.
+    defaultAgent:
+      endpoint: "dns:///localhost:8000"
+      insecure: true
+      timeouts:
+        CreateTask: 100s
+      defaultTimeout: 100s
+``` 
+2. change [TIMEOUT_SECONDS](https://github.com/flyteorg/flytekit/pull/2086/files#diff-5be320bc41d469554e0bc69d24afbf29bb6bb8efea32f9290b2e4dab438a7f3cR16) to 100s
 
 ## How to execute
 
@@ -133,7 +156,7 @@ kubectl create secret generic github-api\
       -n flytesnacks-development
 ```
 ```bash
-pyflyte run --remote --image futureoutlier/flytekit:chatgpt getFlyteLatestReleaseSummary.py wf
+pyflyte run --remote --image futureoutlier/flytekit:chatgpt-v2 getFlyteLatestReleaseSummary.py wf
 ```
 
 Screenshot
@@ -197,7 +220,7 @@ kubectl create secret generic slack-api\
       -n flytesnacks-development
 ```
 ```bash
-pyflyte run --remote futureoutlier/flytekit:chatgpt your-image getFlyteLatestYouTubeSummary.py.py wf
+pyflyte run --remote futureoutlier/flytekit:chatgpt-v2 your-image getFlyteLatestYouTubeSummary.py.py wf
 ```
 
 Screenshot
