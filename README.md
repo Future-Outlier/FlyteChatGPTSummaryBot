@@ -107,7 +107,7 @@ data:
 kubectl rollout restart deployment flyteagent  -n flyte
 ```
 ### 3.Set your agent timeout config (if you use gpt-4 or other large model with large input)
-1. edit your confg map
+1. edit your config map
 ```bash
 kubectl edit configmap flyte-sandbox-config -n flyte
 ```
