@@ -53,14 +53,17 @@ Also, it leverages Flyte's capability, which makes workflows reproducible and ha
 
 ## How it works
 ### Overview of the `GithubLatestRelease` Workflow
-![Alt text](./img/GithubWorkflow.png)
+<img width="1109" alt="image" src="https://github.com/Future-Outlier/FlyteChatGPTSummaryBot/assets/76461262/b9727ca3-a708-4db9-b010-6700f77afa4d">
+
 ### Overview of the `MediumWeeklyMLOpsTrend` Workflow
-![Alt text](./img/MLOpsWorkflow.png)
-### Overview of the  `YoutubeLatestSummary` Workflow
-![Alt text](./img/YoutubeWorkflow.png)
+<img width="1135" alt="image" src="https://github.com/Future-Outlier/FlyteChatGPTSummaryBot/assets/76461262/5ad9f3aa-260a-4510-accf-78f730b6a68e">
+
+### Overview of the `YoutubeLatestSummary` Workflow
+<img width="1055" alt="image" src="https://github.com/Future-Outlier/FlyteChatGPTSummaryBot/assets/76461262/7e2f5807-1bc0-4556-aed1-cb00210e799d">
 
 ### Multiple workflow usecases
-![Alt text](./img/MultipleWokrflows.png)
+<img width="652" alt="image" src="https://github.com/Future-Outlier/FlyteChatGPTSummaryBot/assets/76461262/e4c5d9ba-f752-4a1b-95fe-95785a8aa7f2">
+
 - Sources: Internal System, Github Weekly Merged PRs, Github Latest Release, Medium MLOps Weekly Title, HackerNews
 - Summary Service: ChatGPT
 - Communication Channels: Internal Information System, Slack, Twitter, Linkedin, Medium, Reddit
