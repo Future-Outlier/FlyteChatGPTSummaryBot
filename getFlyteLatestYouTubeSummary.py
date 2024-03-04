@@ -2,24 +2,34 @@ from typing import List
 
 import flytekit
 from flytekit import ImageSpec, Secret, dynamic, task, workflow
-from flytekitplugins.chatgpt import ChatGPTTask, ChatGPTConfig
+from flytekitplugins.chatgpt import ChatGPTTask
 
-config = ChatGPTConfig(
-        openai_organization="org-NayNG68kGnVXMJ8Ak4PMgQv7",
-        chatgpt_config={
-                "model": "gpt-3.5-turbo",
-                "temperature": 0.7,
-        },
-    )
+flytekit_master = "git+https://github.com/flyteorg/flytekit.git@master"
+chatgpt_plugin = "git+https://github.com/flyteorg/flytekit.git@master#subdirectory=plugins/flytekit-openai"
+image = ImageSpec(
+    apt_packages=["git"],
+    packages=[
+        flytekit_master,
+        chatgpt_plugin,
+        "scrapetube==2.5.1",
+        "youtube_transcript_api==0.6.1",
+        "slack_sdk==3.23.0",
+    ],
+    registry="futureoutlier",
+)
 
 chatgpt_job = ChatGPTTask(
-    name="chatgpt",
-    task_config=config
+    name="3.5-turbo",
+    openai_organization="org-NayNG68kGnVXMJ8Ak4PMgQv7",
+    chatgpt_config={
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.7,
+    },
 )
 
 
-
 @task(
+    container_image=image,
     secret_requests=[Secret(key="token", group="slack-api")],
 )
 def post_message_on_slack(message: str):
@@ -33,7 +43,7 @@ def post_message_on_slack(message: str):
     client.chat_postMessage(channel="youtube-summary", text=message)
 
 
-@task
+@task(container_image=image)
 def get_latest_video_transcript_chunks(channel_url: str) -> List[str]:
     import scrapetube
     from youtube_transcript_api import YouTubeTranscriptApi
@@ -59,22 +69,22 @@ def wf(channel_url: str):
     dynamic_subwf(channel_url=channel_url, chunks=chunks)
 
 
-@task
+@task(container_image=image)
 def check_strs_len_less_than_num(msg1: str, msg2: str, num: int) -> bool:
     return len(msg1) + len(msg2) < num
 
 
-@task
+@task(container_image=image)
 def concatenate_str(msg1: str, msg2: str) -> str:
     return msg1 + msg2 + "\n"
 
 
-@task
+@task(container_image=image)
 def str_is_non_empty(msg: str) -> bool:
     return len(msg) == 0
 
 
-@dynamic
+@dynamic(container_image=image)
 def dynamic_subwf(channel_url: str, chunks: List[str]):
     post_message_on_slack(
         message=f"This is the latest video summary, checkout in Flyte's Youtube Channel!\n{channel_url}"

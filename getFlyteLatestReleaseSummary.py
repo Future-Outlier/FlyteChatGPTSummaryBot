@@ -1,22 +1,32 @@
 import flytekit
 from flytekit import ImageSpec, Secret, task, workflow
-from flytekitplugins.chatgpt import ChatGPTTask, ChatGPTConfig
+from flytekitplugins.chatgpt import ChatGPTTask
 
-config = ChatGPTConfig(
-        openai_organization="org-NayNG68kGnVXMJ8Ak4PMgQv7",
-        chatgpt_config={
-                "model": "gpt-4",
-                "temperature": 0.7,
-        },
-    )
+flytekit_master = "git+https://github.com/flyteorg/flytekit.git@master"
+chatgpt_plugin = "git+https://github.com/flyteorg/flytekit.git@master#subdirectory=plugins/flytekit-openai"
+image = ImageSpec(
+    apt_packages=["git"],
+    packages=[
+        flytekit_master,
+        chatgpt_plugin,
+        "requests",
+        "slack_sdk",
+    ],
+    registry="futureoutlier",
+)
 
 chatgpt_job = ChatGPTTask(
-    name="chatgpt",
-    task_config=config
+    name="gpt-3.5-turbo",
+    openai_organization="org-NayNG68kGnVXMJ8Ak4PMgQv7",
+    chatgpt_config={
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.7,
+    },
 )
 
 
 @task(
+    container_image=image,
     secret_requests=[Secret(key="token", group="github-api")],
 )
 def get_github_latest_release(owner: str = "flyteorg", repo: str = "flyte") -> str:
@@ -44,9 +54,10 @@ def get_github_latest_release(owner: str = "flyteorg", repo: str = "flyte") -> s
 
 
 @task(
+    container_image=image,
     secret_requests=[Secret(key="token", group="slack-api")],
 )
-def post_message_on_slack(channel:str, message: str):
+def post_message_on_slack(channel: str, message: str):
     from slack_sdk import WebClient
 
     token = flytekit.current_context().secrets.get("slack-api", "token")

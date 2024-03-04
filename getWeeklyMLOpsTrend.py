@@ -1,23 +1,33 @@
 import flytekit
-from flytekit import Secret, task, workflow
-from flytekitplugins.chatgpt import ChatGPTTask, ChatGPTConfig
+from flytekit import ImageSpec, Secret, task, workflow
+from flytekitplugins.chatgpt import ChatGPTTask
 
-
-config = ChatGPTConfig(
-        openai_organization="org-NayNG68kGnVXMJ8Ak4PMgQv7",
-        chatgpt_config={
-                "model": "gpt-3.5-turbo",
-                "temperature": 0.7,
-        },
-    )
+flytekit_master = "git+https://github.com/flyteorg/flytekit.git@master"
+chatgpt_plugin = "git+https://github.com/flyteorg/flytekit.git@master#subdirectory=plugins/flytekit-openai"
+image = ImageSpec(
+    apt_packages=["git"],
+    packages=[
+        flytekit_master,
+        chatgpt_plugin,
+        "beautifulsoup4",
+        "selenium",
+        "webdriver-manager",
+        "tweepy",
+    ],
+    registry="futureoutlier",
+)
 
 chatgpt_job = ChatGPTTask(
-    name="chatgpt",
-    task_config=config
+    name="gpt-3.5-turbo",
+    openai_organization="org-NayNG68kGnVXMJ8Ak4PMgQv7",
+    chatgpt_config={
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.7,
+    },
 )
 
 
-@task
+@task(container_image=image)
 def get_weekly_articles_title(url: str = "https://medium.com/tag/flyte") -> str:
     from bs4 import BeautifulSoup
     from selenium import webdriver
@@ -63,6 +73,7 @@ def get_weekly_articles_title(url: str = "https://medium.com/tag/flyte") -> str:
         Secret(key="access_token", group="tweet-api"),
         Secret(key="access_token_secret", group="tweet-api"),
     ],
+    container_image=image,
 )
 def tweet(text: str):
     import tweepy
